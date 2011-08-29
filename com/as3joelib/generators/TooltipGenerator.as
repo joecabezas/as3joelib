@@ -7,16 +7,16 @@ package com.as3joelib.generators
 	import flash.geom.Point;
 	import flash.text.TextField;
 
-	public class TooltipGenerator extends Sprite
+	public class ToolTipGenerator extends Sprite
 	{
 		private var container:Sprite;
 		
-		private var tooltip:Sprite;
+		private var ToolTipGenerator:Sprite;
 		private var offset:Point;
 		private var sx:Number;
 		private var sy:Number;
 		
-		public function Tooltip(_xoffset:Number=20,_yoffset:Number=-55,_sx:Number=100,_sy:Number=30)
+		public function ToolTipGenerator(_xoffset:Number=20,_yoffset:Number=-55,_sx:Number=100,_sy:Number=30)
 		{
 			this.offset = new Point(_xoffset,_yoffset);
 			
@@ -30,23 +30,23 @@ package com.as3joelib.generators
 			this.container = new Sprite();
 			this.addChild(this.container);
 			
-			this.tooltip = new TooltipAsset();
-			this.container.addChild(this.tooltip);
+			this.ToolTipGenerator = new ToolTipGeneratorAsset();
+			this.container.addChild(this.ToolTipGenerator);
 			
-			this.tooltip.x = this.offset.x;
-			this.tooltip.y = this.offset.y;
+			this.ToolTipGenerator.x = this.offset.x;
+			this.ToolTipGenerator.y = this.offset.y;
 			
-			this.tooltip.width = this.sx;
-			this.tooltip.height = this.sy;
+			this.ToolTipGenerator.width = this.sx;
+			this.ToolTipGenerator.height = this.sy;
 			
 			this.container.scaleX = 0;
 			this.container.scaleY = 0;
-			//this.tooltip.visible = false;
+			//this.ToolTipGenerator.visible = false;
 		}
 		
-		public function addTooltipContent(s:String):void{
-			//this.tooltip.scaleX = 1;
-			//this.tooltip.scaleY = 1;
+		public function addToolTipGeneratorContent(s:String):void{
+			//this.ToolTipGenerator.scaleX = 1;
+			//this.ToolTipGenerator.scaleY = 1;
 			
 			var t:TextField = TextFieldHelper.crearTextField(s,{size:14,color:0xFFFFFF,align:'left'});
 			
@@ -55,15 +55,15 @@ package com.as3joelib.generators
 			this.sx = t.textWidth + 20;
 			this.sy = t.textHeight + 10;
 			
-			this.tooltip.width = this.sx;
-			this.tooltip.height = this.sy;
+			this.ToolTipGenerator.width = this.sx;
+			this.ToolTipGenerator.height = this.sy;
 			
 			t.x = this.offset.x - t.textWidth/2 - 1;
 			t.y = this.offset.y - t.textHeight/2 - 1;
 			this.container.addChild(t);
 			
-			//this.tooltip.scaleX = 0;
-			//this.tooltip.scaleY = 0;
+			//this.ToolTipGenerator.scaleX = 0;
+			//this.ToolTipGenerator.scaleY = 0;
 		}
 		
 		public function on():void{

@@ -1,4 +1,4 @@
-package com.as3joelib.generators
+package utils
 {
 	import flash.display.Loader;
 	import flash.display.Sprite;
@@ -7,7 +7,7 @@ package com.as3joelib.generators
 	import flash.events.ProgressEvent;
 	import flash.net.URLRequest;
 
-	public class ImageGenerator extends Sprite
+	public class ImageHelper extends Sprite
 	{
 		//eventos
 		public static const IMAGEHELPER_IMAGE_LOADED:String = 'imageHelperImageLoaded';

@@ -3,7 +3,7 @@ package com.as3joelib.ui
 	
 	import com.greensock.data.TweenLiteVars;
 	import com.greensock.TweenLite;
-	import flash.display.DisplayObject;
+	import flash.display.DisplayObjectContainer;
 	
 	/**
 	 * ...
@@ -13,8 +13,8 @@ package com.as3joelib.ui
 	{
 		private static const DEFAULT_DURATION:Number = 1;
 		
-		private var items:Vector.<DisplayObject>;
-		private var actual_item:DisplayObject;
+		private var items:Vector.<DisplayObjectContainer>;
+		private var actual_item:DisplayObjectContainer;
 		
 		private var _animation_in_object:Object;
 		private var _animation_out_object:Object;
@@ -29,7 +29,7 @@ package com.as3joelib.ui
 		
 		private function setup():void
 		{
-			this.items = new Vector.<DisplayObject>;
+			this.items = new Vector.<DisplayObjectContainer>;
 			
 			this._animation_in_object = {alpha: 1};
 			this._animation_out_object = { alpha: 0 };
@@ -40,19 +40,21 @@ package com.as3joelib.ui
 		
 		public function hideAllItems():void
 		{
-			for each (var i:DisplayObject in this.items)
+			for each (var i:DisplayObjectContainer in this.items)
 			{
+				i.mouseEnabled = false;
+				i.mouseChildren = false;
 				TweenLite.to(i, 0, this.animation_out_object);
 			}
 		}
 		
-		public function addItem(d:DisplayObject):void
+		public function addItem(d:DisplayObjectContainer):void
 		{
 			this.items.push(d);
 			this.actual_item = d;
 		}
 		
-		public function showItem(d:DisplayObject):void
+		public function showItem(d:DisplayObjectContainer):void
 		{
 			//esconder el actual
 			this.hideItem(this.actual_item);
@@ -62,10 +64,19 @@ package com.as3joelib.ui
 			
 			//marcar el solicitado como el actual
 			this.actual_item = d;
+			
+			//hacer que el actual responda a eventos de mouse
+			this.actual_item.mouseEnabled = true;
+			this.actual_item.mouseChildren = true;
 		}
 		
-		private function hideItem(d:DisplayObject):void
+		private function hideItem(d:DisplayObjectContainer):void
 		{
+			//quitar respuesta a eventos de mouse
+			DisplayObjectContainer(this.items[this.items.indexOf(d)]).mouseEnabled = false;
+			DisplayObjectContainer(this.items[this.items.indexOf(d)]).mouseChildren = false;
+			
+			//animacion de esconder
 			TweenLite.to(this.items[this.items.indexOf(d)], this.duration_out, this._animation_out_object);
 		}
 		
@@ -121,5 +132,4 @@ package com.as3joelib.ui
 		}
 	
 	}
-
 }

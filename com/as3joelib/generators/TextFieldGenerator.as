@@ -8,7 +8,7 @@ package com.as3joelib.generators
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
-	public class TextFieldGenerator
+	public class TextFieldHelper
 	{
 		[Embed(source="lib/fonts/TrajanPro-Bold.otf", fontWeight="bold", fontFamily="TrajanPro")]
 		public var TrajanPro_Bold:Class;
