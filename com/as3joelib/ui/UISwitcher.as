@@ -42,8 +42,7 @@ package com.as3joelib.ui
 		{
 			for each (var i:DisplayObjectContainer in this.items)
 			{
-				i.mouseEnabled = false;
-				i.mouseChildren = false;
+				this.disableMouseEvents(i);
 				TweenLite.to(i, 0, this.animation_out_object);
 			}
 		}
@@ -54,10 +53,16 @@ package com.as3joelib.ui
 			this.actual_item = d;
 		}
 		
-		public function showItem(d:DisplayObjectContainer):void
+		//cambiar a una vista pero ocultando las otras, dependiendo del segundo parámetro
+		public function switchTo(d:DisplayObjectContainer, hide_others:Boolean = true):void
 		{
-			//esconder el actual
-			this.hideItem(this.actual_item);
+			if(hide_others) {
+				//esconder el actual
+				this.hideItem(this.actual_item);
+			}
+			
+			//quitar respuesta a eventos de mouse del elemento actual
+			this.disableMouseEvents(this.actual_item);
 			
 			//mostrar el solicitado
 			TweenLite.to(this.items[this.items.indexOf(d)], this.duration_in, this.animation_in_object);
@@ -66,24 +71,29 @@ package com.as3joelib.ui
 			this.actual_item = d;
 			
 			//hacer que el actual responda a eventos de mouse
-			this.actual_item.mouseEnabled = true;
-			this.actual_item.mouseChildren = true;
+			this.enableMouseEvents(this.actual_item);
 		}
 		
 		private function hideItem(d:DisplayObjectContainer):void
 		{
-			//quitar respuesta a eventos de mouse
-			DisplayObjectContainer(this.items[this.items.indexOf(d)]).mouseEnabled = false;
-			DisplayObjectContainer(this.items[this.items.indexOf(d)]).mouseChildren = false;
-			
 			//animacion de esconder
 			TweenLite.to(this.items[this.items.indexOf(d)], this.duration_out, this._animation_out_object);
 		}
 		
 		public function next():void {
-			this.showItem(this.items[(this.items.indexOf(this.actual_item) + 1) % this.items.length]);
+			this.switchTo(this.items[(this.items.indexOf(this.actual_item) + 1) % this.items.length]);
 			//trace((this.items.indexOf(this.actual_item) + 1) % this.items.length);
 			//this.showItem(this.items[0]);
+		}
+		
+		private function disableMouseEvents(d:DisplayObjectContainer):void {
+			d.mouseEnabled = false;
+			d.mouseChildren = false;
+		}
+		
+		private function enableMouseEvents(d:DisplayObjectContainer):void {
+			d.mouseEnabled = true;
+			d.mouseChildren = true;
 		}
 		
 		public function get animation_in_object():Object
