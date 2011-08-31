@@ -1,5 +1,6 @@
 package com.as3joelib.generators
 {
+	import com.as3joelib.utils.ArrayUtil;
 	import flash.text.AntiAliasType;
 	import flash.text.Font;
 	import flash.text.StyleSheet;
@@ -8,13 +9,13 @@ package com.as3joelib.generators
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
-	public class TextFieldHelper
+	public class TextFieldGenerator
 	{
-		[Embed(source="lib/fonts/TrajanPro-Bold.otf", fontWeight="bold", fontFamily="TrajanPro")]
+		/*[Embed(source="lib/fonts/TrajanPro-Bold.otf", fontWeight="bold", fontFamily="TrajanPro")]
 		public var TrajanPro_Bold:Class;
 		
 		[Embed(source="lib/fonts/TrajanPro-Regular.otf", fontFamily="TrajanPro")]
-		public var TrajanPro_Regular:Class;
+		public var TrajanPro_Regular:Class;*/
 		
 		/*
 		[Embed(source="../lib/fonts/arialbd.ttf", fontWeight="bold", fontFamily="Arial", mimeType="application/x-font-truetype")]
@@ -38,7 +39,7 @@ package com.as3joelib.generators
 				
 				//textfield
 				autosize:TextFieldAutoSize.LEFT,
-				embedfonts:true,
+				embedfonts:false,
 				selectable:false,
 				multiline:false,
 				wordwarp:false,

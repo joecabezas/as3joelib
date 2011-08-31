@@ -1,4 +1,4 @@
-package utils
+package com.as3joelib.utils
 {
 	public class ArrayUtil
 	{
