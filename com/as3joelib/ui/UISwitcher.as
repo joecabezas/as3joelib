@@ -56,13 +56,19 @@ package com.as3joelib.ui
 		//cambiar a una vista pero ocultando las otras, dependiendo del segundo parámetro
 		public function switchTo(d:DisplayObjectContainer, hide_others:Boolean = true):void
 		{
+			trace('UISwitcher.switchTo');
+			
 			if(hide_others) {
 				//esconder el actual
 				this.hideItem(this.actual_item);
 			}
 			
+			trace(this.actual_item);
+			
 			//quitar respuesta a eventos de mouse del elemento actual
 			this.disableMouseEvents(this.actual_item);
+			
+			trace(this.actual_item.mouseChildren);
 			
 			//mostrar el solicitado
 			TweenLite.to(this.items[this.items.indexOf(d)], this.duration_in, this.animation_in_object);
@@ -72,6 +78,7 @@ package com.as3joelib.ui
 			
 			//hacer que el actual responda a eventos de mouse
 			this.enableMouseEvents(this.actual_item);
+			trace(this.actual_item);
 		}
 		
 		private function hideItem(d:DisplayObjectContainer):void
