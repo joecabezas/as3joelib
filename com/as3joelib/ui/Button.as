@@ -21,35 +21,30 @@ package com.as3joelib.ui
 		
 		private function agregarListeners():void 
 		{
-			this.addEventListener(MouseEvent.CLICK, onClick);
+			this.addEventListener(MouseEvent.CLICK, _onClick);
 			this.addEventListener(MouseEvent.ROLL_OVER, onRollOver);
 			this.addEventListener(MouseEvent.ROLL_OUT, onRollOut);
 		}
 		
-		/* INTERFACE botones.IButton */
-		
-		private function onClick(e:MouseEvent):void
+		private function _onClick(e:MouseEvent):void
 		{
 			if (this.toggle) {
 				this._selected = !this._selected;
 			}
 			
-			this.customOnClick(e);
+			this.onClick(e);
 		}
 		
-		protected function customOnClick(e:MouseEvent):void 
+		protected function onClick(e:MouseEvent):void 
 		{
-			
 		}
 		
 		protected function onRollOver(e:MouseEvent) :void
 		{
-			
 		}
 		
 		protected function onRollOut(e:MouseEvent):void
 		{
-			
 		}
 		
 		public function get selected():Boolean 

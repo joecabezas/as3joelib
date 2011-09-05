@@ -11,13 +11,24 @@ package com.as3joelib.generators
 	
 	public class TextFieldGenerator
 	{
-		/*[Embed(source="lib/fonts/TrajanPro-Bold.otf", fontWeight="bold", fontFamily="TrajanPro")]
+		public static const AUTOSIZE_CENTER:String = TextFieldAutoSize.CENTER;
+		public static const AUTOSIZE_LEFT:String = TextFieldAutoSize.LEFT;
+		public static const AUTOSIZE_RIGHT:String = TextFieldAutoSize.RIGHT;
+		public static const AUTOSIZE_NONE:String = TextFieldAutoSize.NONE;
+		
+		public static const TEXTFORMAT_ALIGN_CENTER:String = TextFormatAlign.CENTER;
+		public static const TEXTFORMAT_ALIGN_LEFT:String = TextFormatAlign.LEFT;
+		public static const TEXTFORMAT_ALIGN_RIGHT:String = TextFormatAlign.RIGHT;
+		public static const TEXTFORMAT_ALIGN_JUSTIFY:String = TextFormatAlign.JUSTIFY;
+		
+		/*
+		[Embed(source="lib/fonts/TrajanPro-Bold.otf", fontWeight="bold", fontFamily="TrajanPro")]
 		public var TrajanPro_Bold:Class;
 		
 		[Embed(source="lib/fonts/TrajanPro-Regular.otf", fontFamily="TrajanPro")]
-		public var TrajanPro_Regular:Class;*/
+		public var TrajanPro_Regular:Class;
 		
-		/*
+		
 		[Embed(source="../lib/fonts/arialbd.ttf", fontWeight="bold", fontFamily="Arial", mimeType="application/x-font-truetype")]
 		public static const ArialBold:String;
 		
@@ -28,7 +39,7 @@ package com.as3joelib.generators
 		public static const ArialBoldItalic:String;
 		*/
 		
-		public  static function crearTextField(_txt:String,_opciones_usuario:Object = null):TextField{
+		public static function crearTextField(_txt:String,_opciones_usuario:Object = null):TextField{
 			
 			var opciones:Object = new Object();
 			
