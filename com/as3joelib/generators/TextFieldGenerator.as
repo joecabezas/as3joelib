@@ -53,10 +53,10 @@ package com.as3joelib.generators
 				embedfonts:false,
 				selectable:false,
 				multiline:false,
-				wordwarp:false,
+				wordwrap:false,
 				border:false,
 				width:300,
-				height:300,
+				//height:20,
 				
 				//textformat
 				size:20,

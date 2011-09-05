@@ -38,12 +38,15 @@ package com.as3joelib.ui
 			this.duration_out = 1;
 		}
 		
-		public function hideAllItems():void
+		public function hideAllItems(instant:Boolean = true):void
 		{
 			for each (var i:DisplayObjectContainer in this.items)
 			{
 				this.disableMouseEvents(i);
-				TweenLite.to(i, 0, this.animation_out_object);
+				
+				var duration:Number = (instant)? 0 : this.duration_out;
+				
+				TweenLite.to(i, duration, this.animation_out_object);
 			}
 		}
 		
@@ -56,7 +59,7 @@ package com.as3joelib.ui
 		//cambiar a una vista pero ocultando las otras, dependiendo del segundo parámetro
 		public function switchTo(d:DisplayObjectContainer, hide_others:Boolean = true):void
 		{
-			trace('UISwitcher.switchTo');
+			//trace('UISwitcher.switchTo');
 			
 			if(hide_others) {
 				//esconder el actual
@@ -113,9 +116,7 @@ package com.as3joelib.ui
 			if (value.duration)
 			{
 				this.duration_in = value.duration
-				trace(value.duration);
 				delete value.duration
-				trace(value.duration);
 				_animation_in_object = value;
 			}
 			else
@@ -135,9 +136,7 @@ package com.as3joelib.ui
 			if (value.duration)
 			{
 				this.duration_out = value.duration
-				trace(value.duration);
 				delete value.duration
-				trace(value.duration);
 				_animation_out_object = value;
 			}
 			else
