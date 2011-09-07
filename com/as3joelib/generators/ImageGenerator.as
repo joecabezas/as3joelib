@@ -1,4 +1,4 @@
-package utils
+package com.as3joelib.generators
 {
 	import flash.display.Loader;
 	import flash.display.Sprite;

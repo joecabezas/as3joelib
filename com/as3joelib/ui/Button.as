@@ -29,7 +29,7 @@ package com.as3joelib.ui
 		private function _onClick(e:MouseEvent):void
 		{
 			if (this.toggle) {
-				this._selected = !this._selected;
+				this.selected = !this.selected;
 			}
 			
 			this.onClick(e);
@@ -47,6 +47,10 @@ package com.as3joelib.ui
 		{
 		}
 		
+		protected function onSelectedChange():void 
+		{
+		}
+		
 		public function get selected():Boolean 
 		{
 			return _selected;
@@ -55,6 +59,7 @@ package com.as3joelib.ui
 		public function set selected(value:Boolean):void 
 		{
 			_selected = value;
+			this.onSelectedChange();
 		}
 		
 		public function get toggle():Boolean 

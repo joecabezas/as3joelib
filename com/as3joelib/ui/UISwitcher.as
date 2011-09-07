@@ -57,11 +57,11 @@ package com.as3joelib.ui
 		}
 		
 		//cambiar a una vista pero ocultando las otras, dependiendo del segundo parámetro
-		public function switchTo(d:DisplayObjectContainer, hide_others:Boolean = true):void
+		public function switchTo(d:DisplayObjectContainer, hide_previous:Boolean = true):void
 		{
 			//trace('UISwitcher.switchTo');
 			
-			if(hide_others) {
+			if(hide_previous) {
 				//esconder el actual
 				this.hideItem(this.actual_item);
 			}
@@ -82,6 +82,11 @@ package com.as3joelib.ui
 			//hacer que el actual responda a eventos de mouse
 			this.enableMouseEvents(this.actual_item);
 			//trace(this.actual_item);
+		}
+		
+		public function switchToIndex(index:uint, hide_previous:Boolean = true):void 
+		{
+			this.switchTo(this.items[index], hide_previous);
 		}
 		
 		private function hideItem(d:DisplayObjectContainer):void
