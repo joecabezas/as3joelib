@@ -6,6 +6,7 @@ package com.as3joelib.generators
 	import flash.text.StyleSheet;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFieldType;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	
@@ -20,6 +21,9 @@ package com.as3joelib.generators
 		public static const TEXTFORMAT_ALIGN_LEFT:String = TextFormatAlign.LEFT;
 		public static const TEXTFORMAT_ALIGN_RIGHT:String = TextFormatAlign.RIGHT;
 		public static const TEXTFORMAT_ALIGN_JUSTIFY:String = TextFormatAlign.JUSTIFY;
+		
+		public static const TEXTFIELD_TYPE_DYNAMIC:String = TextFieldType.DYNAMIC;
+		public static const TEXTFIELD_TYPE_INPUT:String = TextFieldType.INPUT;
 		
 		/*
 		[Embed(source="lib/fonts/TrajanPro-Bold.otf", fontWeight="bold", fontFamily="TrajanPro")]
@@ -49,6 +53,7 @@ package com.as3joelib.generators
 				html:false,
 				
 				//textfield
+				type:TextFieldType.DYNAMIC,
 				autosize:TextFieldAutoSize.LEFT,
 				embedfonts:false,
 				selectable:false,
@@ -105,6 +110,8 @@ package com.as3joelib.generators
 			
 			txt.multiline = opciones.multiline;
 			txt.wordWrap = opciones.wordwrap;
+			
+			txt.type = opciones.type;
 			
 			//debug
 			txt.border = opciones.border;

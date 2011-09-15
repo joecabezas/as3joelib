@@ -1,7 +1,8 @@
-package com.as3joelib.ui 
+package com.as3joelib.ui
 {
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
+	
 	/**
 	 * ...
 	 * @author Joe Cabezas
@@ -11,15 +12,15 @@ package com.as3joelib.ui
 		private var _toggle:Boolean;
 		protected var _selected:Boolean;
 		
-		public function Button() 
+		public function Button()
 		{
 			this._toggle = false;
 			this._selected = false;
-
+			
 			this.agregarListeners();
 		}
 		
-		private function agregarListeners():void 
+		private function agregarListeners():void
 		{
 			this.addEventListener(MouseEvent.CLICK, _onClick);
 			this.addEventListener(MouseEvent.ROLL_OVER, onRollOver);
@@ -28,18 +29,19 @@ package com.as3joelib.ui
 		
 		private function _onClick(e:MouseEvent):void
 		{
-			if (this.toggle) {
+			if (this.toggle)
+			{
 				this.selected = !this.selected;
 			}
 			
 			this.onClick(e);
 		}
 		
-		protected function onClick(e:MouseEvent):void 
+		protected function onClick(e:MouseEvent):void
 		{
 		}
 		
-		protected function onRollOver(e:MouseEvent) :void
+		protected function onRollOver(e:MouseEvent):void
 		{
 		}
 		
@@ -47,27 +49,27 @@ package com.as3joelib.ui
 		{
 		}
 		
-		protected function onSelectedChange():void 
+		protected function onSelectedChange():void
 		{
 		}
 		
-		public function get selected():Boolean 
+		public function get selected():Boolean
 		{
 			return _selected;
 		}
 		
-		public function set selected(value:Boolean):void 
+		public function set selected(value:Boolean):void
 		{
 			_selected = value;
 			this.onSelectedChange();
 		}
 		
-		public function get toggle():Boolean 
+		public function get toggle():Boolean
 		{
 			return _toggle;
 		}
 		
-		public function set toggle(value:Boolean):void 
+		public function set toggle(value:Boolean):void
 		{
 			_toggle = value;
 			this._selected = false;
