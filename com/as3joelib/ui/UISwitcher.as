@@ -2,7 +2,7 @@ package com.as3joelib.ui
 {
 	
 	import com.greensock.data.TweenLiteVars;
-	import com.greensock.TweenLite;
+	import com.greensock.TweenMax;
 	import flash.display.DisplayObjectContainer;
 	
 	/**
@@ -46,7 +46,7 @@ package com.as3joelib.ui
 				
 				var duration:Number = (instant)? 0 : this.duration_out;
 				
-				TweenLite.to(i, duration, this.animation_out_object);
+				TweenMax.to(i, duration, this.animation_out_object);
 			}
 		}
 		
@@ -74,7 +74,7 @@ package com.as3joelib.ui
 			//trace(this.actual_item.mouseChildren);
 			
 			//mostrar el solicitado
-			TweenLite.to(this.items[this.items.indexOf(d)], this.duration_in, this.animation_in_object);
+			TweenMax.to(this.items[this.items.indexOf(d)], this.duration_in, this.animation_in_object);
 			
 			//marcar el solicitado como el actual
 			this.actual_item = d;
@@ -92,7 +92,7 @@ package com.as3joelib.ui
 		private function hideItem(d:DisplayObjectContainer):void
 		{
 			//animacion de esconder
-			TweenLite.to(this.items[this.items.indexOf(d)], this.duration_out, this._animation_out_object);
+			TweenMax.to(this.items[this.items.indexOf(d)], this.duration_out, this._animation_out_object);
 		}
 		
 		public function next():void {
