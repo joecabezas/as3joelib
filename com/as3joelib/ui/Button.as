@@ -23,8 +23,13 @@ package com.as3joelib.ui
 		private function agregarListeners():void
 		{
 			this.addEventListener(MouseEvent.CLICK, _onClick);
+			
 			this.addEventListener(MouseEvent.ROLL_OVER, onRollOver);
 			this.addEventListener(MouseEvent.ROLL_OUT, onRollOut);
+			
+			this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+			this.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			this.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
 		}
 		
 		private function _onClick(e:MouseEvent):void
@@ -46,6 +51,18 @@ package com.as3joelib.ui
 		}
 		
 		protected function onRollOut(e:MouseEvent):void
+		{
+		}
+		
+		protected function onMouseDown(e:MouseEvent):void
+		{
+		}
+		
+		protected function onMouseUp(e:MouseEvent):void
+		{
+		}
+		
+		protected function onMouseMove(e:MouseEvent):void
 		{
 		}
 		
