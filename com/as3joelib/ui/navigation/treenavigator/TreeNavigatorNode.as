@@ -3,6 +3,7 @@ package com.as3joelib.ui.navigation.treenavigator
 	import com.as3joelib.generators.TextFieldGenerator;
 	import com.as3joelib.ui.Button;
 	import com.as3joelib.ui.UISwitcher;
+	import com.as3joelib.utils.StringUtil;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -65,7 +66,7 @@ package com.as3joelib.ui.navigation.treenavigator
 			this.fondo_hover.graphics.drawRect(0, 0, this.desired_width, this.desired_height);
 			this.fondo_hover.graphics.endFill();
 			
-			this.tf_label = TextFieldGenerator.crearTextField(this.data.name, {size: 12, color: 0xffffff, align: TextFieldGenerator.TEXTFORMAT_ALIGN_RIGHT, autosize: TextFieldGenerator.AUTOSIZE_NONE, width:this.desired_width, height:this.desired_height-5});
+			this.tf_label = TextFieldGenerator.crearTextField(StringUtil.firstToUpper(this.data.name), {size: 12, color: 0xffffff, align: TextFieldGenerator.TEXTFORMAT_ALIGN_RIGHT, autosize: TextFieldGenerator.AUTOSIZE_NONE, width:this.desired_width, height:this.desired_height-5});
 			
 			this.switcher = new UISwitcher();
 			this.switcher.addItem(this.fondo_normal);

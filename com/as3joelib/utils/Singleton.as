@@ -9,7 +9,7 @@ package com.as3joelib.utils
 		private static var instance:Singleton = new Singleton();
 		
 		//objeto que mantendra los objetos que queramos
-		public var data:Object;
+		public var data:Object = new Object();
 		
 		//no editar
 		public function Singleton()
