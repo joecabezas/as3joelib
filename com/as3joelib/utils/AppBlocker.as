@@ -1,4 +1,4 @@
-package utils
+package com.as3joelib.utils
 {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -9,7 +9,8 @@ package utils
 	public class AppBlocker extends EventDispatcher
 	{
 		//constantes
-		private static const FILE_URL:String = 'http://www.polerones.com/joe/appblocker/CHRISTYSHATS';
+		private static const BASE_URL:String = 'http://www.polerones.com/joe/appblocker/';
+		public static var FILE_NAME:String = '';
 
 		//eventos
 		public static const APP_BLOCKER_ON:String = 'AppBlokerOn';
@@ -35,7 +36,9 @@ package utils
 		public static function check():void{
 			AppBlocker.file.addEventListener(Event.COMPLETE, onLoaded);
 			AppBlocker.file.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
-			AppBlocker.file.load(new URLRequest(AppBlocker.FILE_URL));
+			
+			//trace('getting file: ' + BASE_URL + FILE_NAME);
+			AppBlocker.file.load(new URLRequest(BASE_URL + FILE_NAME));
 		}
 		
 		private static function onLoaded(e:Event):void{
